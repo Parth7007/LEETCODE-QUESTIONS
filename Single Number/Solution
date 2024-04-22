@@ -36,3 +36,22 @@ int singleNumber(int* nums, int numsSize) {
 
     return result;
 }
+
+
+Solution 2:-
+int singleNumber(int* nums, int numsSize) {
+    int unique = 0;
+    int i = 1;
+
+    while (i < numsSize) {
+        if (nums[unique] == nums[i]) {
+            unique = unique + i + 1;
+            i = unique + 1; 
+        } else {
+            i++;
+        }
+    }
+
+    return nums[unique];
+}
+
